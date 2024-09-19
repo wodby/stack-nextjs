@@ -1,0 +1,56 @@
+name: nextjs
+icon: nextjs
+title: Next.js
+
+services:
+- name: node
+  title: Node.js
+  service: node
+  required: true
+  links:
+  - name: db
+    service: postgres
+  - name: redis
+    service: valkey
+  - name: storage
+    service: files-nfs
+  - name: sendmail
+    service: mailpit
+
+- name: postgres
+  disabled: true
+  title: PostgreSQL
+  required: false
+  service: postgres
+  volumes:
+  - name: data
+    size: 10   
+
+- name: files-nfs
+  disabled: true
+  title: Files NFS storage
+  service: nfs-provisioner
+  volumes:
+  - name: data
+    size: 25
+
+- name: valkey
+  disabled: true
+  title: Valkey
+  service: valkey
+
+- name: mailpit
+  disabled: true
+  title: Mailpit
+  service: mailpit
+
+- name: opensmtpd
+  disabled: true
+  title: OpenSMTPD
+  service: opensmtpd
+
+- name: gotenberg
+  required: false
+  disabled: true
+  title: Gotenberg
+  service: gotenberg

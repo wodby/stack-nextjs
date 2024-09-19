@@ -3,17 +3,15 @@ icon: nextjs
 title: Next.js
 
 services:
-- name: node
-  title: Node.js
-  service: node
+- name: nextjs
+  title: Next.js
+  service: nextjs
   required: true
   links:
   - name: db
     service: postgres
   - name: redis
     service: valkey
-  - name: storage
-    service: files-nfs
   - name: sendmail
     service: mailpit
 
@@ -25,14 +23,6 @@ services:
   volumes:
   - name: data
     size: 10   
-
-- name: files-nfs
-  disabled: true
-  title: Files NFS storage
-  service: nfs-provisioner
-  volumes:
-  - name: data
-    size: 25
 
 - name: valkey
   disabled: true

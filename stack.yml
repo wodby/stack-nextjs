@@ -4,7 +4,7 @@ title: Next.js
 
 services:
 - name: nextjs
-  title: Next.js
+  title: Node.js
   service: nextjs
   required: true
   links:

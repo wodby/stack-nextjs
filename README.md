@@ -9,9 +9,9 @@ composition for Next.js.
 - [Wodby stack documentation](https://wodby.com/docs/2.0/stacks/)
 - [Stack manifest reference](https://wodby.com/docs/2.0/stacks/template/)
 
-## Start from a template
+## Start from a boilerplate
 
-Use one of the compatible source templates exposed by this stack's services to
+Use one of the compatible boilerplates exposed by this stack's services to
 start with Wodby CI build configuration:
 
 - [Next.js Boilerplate](https://github.com/wodby/nextjs-boilerplate)

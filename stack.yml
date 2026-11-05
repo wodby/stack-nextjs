@@ -15,6 +15,8 @@ services:
     service: valkey
   - name: sendmail
     service: mailpit
+  - name: otel
+    service: otel-collector
 
 - name: postgres
   disabled: true
@@ -45,3 +47,28 @@ services:
   disabled: true
   title: Gotenberg
   service: gotenberg
+
+- name: otel-collector
+  title: OpenTelemetry Collector
+  service: opentelemetry-collector
+  disabled: true
+  # The application sends telemetry to the Collector inside the environment only.
+  endpoints:
+  - name: otlp
+    ports:
+    - name: otlp-http
+      private: true
+  configs:
+  - name: config
+    config: configs/otel-collector.yaml
+  workloads:
+  - name: main
+    containers:
+    - name: otelcol
+      resources:
+        request:
+          cpu: 100
+          memory: 128
+        limit:
+          cpu: 500
+          memory: 512
